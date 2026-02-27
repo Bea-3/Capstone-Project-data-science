@@ -233,8 +233,6 @@ def run_energy_pipeline(
 
     daily_kwh = _prepare_daily_kwh(appliances, energy_accounts)
 
-    energy_balance = _prepare_starting_balance(energy_balance, energy_purchase)
-
     consumption_log = _generate_consumption_log(consumption_log, daily_kwh, energy_balance)
 
     energy_balance = _update_energy_balance_with_consumption(energy_balance, consumption_log)
