@@ -23,6 +23,11 @@ def _clean_account_ids(appliances, consumption_log, energy_balance, energy_purch
 # -------------------------------------------------
 def _prepare_daily_kwh(appliances: pd.DataFrame,
                        energy_accounts: pd.DataFrame) -> pd.DataFrame:
+    
+    # If no appliances exist, return empty daily_kwh safely
+    if appliances.empty:
+        return pd.DataFrame(columns=["account_id", "daily_kwh", "base_tariff", "units_per_day"])
+
 
     appliances = appliances.copy()
 
